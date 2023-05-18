@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Breast Cancer Prediction</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="container mb-5">
+      <h2 class="bg-light">Please Enter Your Data:</h2>
+        <form action="{{url_for('predict')}}" method="POST">
+            <div class="row">
+            <div class="col-md-4">
+            <label for="radius_mean">Radius Mean</label>
+            <input type="text" class="form-control" id="radius_mean" name="radius_mean">
+            </div>
+            <div class="col-md-4">
+            <label for="texture_mean">Texture Mean</label>
+            <input type="text" class="form-control" id="texture_mean" name="texture_mean">
+            </div>
+            <div class="col-md-4">
+            <label for="perimeter_mean">Perimeter Mean</label>
+            <input type="text" class="form-control" id="perimeter_mean" name="perimeter_mean">
+            </div>
+            </div>
+            <div class="row">
+            <div class="col-md-4">
+            <label for="area_mean">Area Mean</label>
+            <input type="text" class="form-control" id="area_mean" name="area_mean">
+            </div>
+            <div class="col-md-4">
+            <label for="smoothness_mean">Smoothness Mean</label>
+            <input type="text" class="form-control" id="smoothness_mean" name="smoothness_mean">
+            </div>
+            <div class="col-md-4">
+            <label for="compactness_mean">Compactness Mean</label>
+            <input type="text" class="form-control" id="compactness_mean" name="compactness_mean">
+            </div>
+            </div>
+            <div class="row">
+            <div class="col-md-4">
+            <label for="concavity_mean">Concavity Mean</label>
+            <input type="text" class="form-control" id="concavity_mean" name="concavity_mean">
+            </div>
+            <div class="col-md-4">
+            <label for="concave_points_mean">Concave Points Mean</label>
+            <input type="text" class="form-control" id="concave_points_mean" name="concave_points_mean">
+            </div>
+            <div class="col-md-4">
+            <label for="symmetry_mean">Symmetry Mean</label>
+            <input type="text" class="form-control" id="symmetry_mean" name="symmetry_mean">
+            </div>
+            </div>
+            <div class="row">
+            <div class="col-md-4">
+            <label for="fractal_dimension_mean">Fractal Dimension Mean</label>
+            <input type="text" class="form-control" id="fractal_dimension_mean" name="fractal_dimension_mean">
+            </div>
+            <div class="col-md-4">
+            <label for="radius_se">Radius SE</label>
+            <input type="text" class="form-control" id="radius_se" name="radius_se">
+            </div>
+            <div class="col-md-4">
+            <label for="texture_se">Texture SE</label>
+            <input type="text" class="form-control" id="texture_se" name="texture_se">
+            </div>
+            </div>
+            <div class="row">
+              <div class="col-md-4">
+              <label for="Perimeter Mean">Perimeter Mean</label>
+              <input type="text" class="form-control" id="Perimeter Mean" name="Perimeter Mean">
+              </div>
+              <div class="col-md-4">
+              <label for="area_se">Area SE</label>
+              <input type="text" class="form-control" id="area_se" name="area_se">
+              </div>
+              <div class="col-md-4">
+              <label for="smoothness_se">Smoothness SE</label>
+              <input type="text" class="form-control" id="smoothness_se" name="smoothness_se">
+              </div>
+              </div>
+              <div class="row">
+              <div class="col-md-4">
+              <label for="compactness_se">Compactness SE</label>
+              <input type="text" class="form-control" id="compactness_se" name="compactness_se">
+              </div>
+              <div class="col-md-4">
+              <label for="concavity_se">Concavity SE</label>
+              <input type="text" class="form-control" id="concavity_se" name="concavity_se">
+              </div>
+              <div class="col-md-4">
+              <label for="concave points_se">Concave Points SE</label>
+              <input type="text" class="form-control" id="concave points_se" name="concave points_se">
+              </div>
+              </div>
+              <div class="row">
+              <div class="col-md-4">
+              <label for="symmetry_se">Symmetry SE</label>
+              <input type="text" class="form-control" id="symmetry_se" name="symmetry_se">
+              </div>
+              <div class="col-md-4">
+              <label for="fractal_dimension_se">Fractal Dimension SE</label>
+              <input type="text" class="form-control" id="fractal_dimension_se" name="fractal_dimension_se">
+              </div>
+              <div class="col-md-4">
+              <label for="radius_worst">Radius Worst</label>
+              <input type="text" class="form-control" id="radius_worst" name="radius_worst">
+              </div>
+              </div>
+              <div class="row">
+              <div class="col-md-4">
+              <label for="texture_worst">Texture Worst</label>
+              <input type="text" class="form-control" id="texture_worst" name="texture_worst">
+              </div>
+              <div class="col-md-4">
+              <label for="perimeter_worst">Perimeter Worst</label>
+              <input type="text" class="form-control" id="perimeter_worst" name="perimeter_worst">
+              </div>
+              <div class="col-md-4">
+              <label for="area_worst">Area Worst</label>
+              <input type="text" class="form-control" id="area_worst" name="area_worst">
+              </div>
+              </div>
+              <div class="row">
+                <div class="col-md-4">
+                <label for="smoothness_worst">Smoothness Worst</label>
+                <input type="text" class="form-control" id="smoothness_worst" name="smoothness_worst">
+                </div>
+                <div class="col-md-4">
+                <label for="compactness_worst">Compactness Worst</label>
+                <input type="text" class="form-control" id="compactness_worst" name="compactness_worst">
+                </div>
+                <div class="col-md-4">
+                <label for="concavity_worst">Concavity Worst</label>
+                <input type="text" class="form-control" id="concavity_worst" name="concavity_worst">
+                </div>
+                </div>
+                <div class="row">
+                <div class="col-md-4">
+                <label for="concave_points_worst">Concave Points Worst</label>
+                <input type="text" class="form-control" id="concave_points_worst" name="concave_points_worst">
+                </div>
+                <div class="col-md-4">
+                <label for="symmetry_worst">Symmetry Worst</label>
+                <input type="text" class="form-control" id="symmetry_worst" name="symmetry_worst">
+                </div>
+                <div class="col-md-4">
+                <label for="fractal_dimension_worst">Fractal Dimension Worst</label>
+                <input type="text" class="form-control" id="fractal_dimension_worst" name="fractal_dimension_worst">
+                </div>
+                </div>
+                <button type="submit" class="btn btn-primary mt-3">Submit</button>
+                </form>
+
+                <div>
+                  <h3 class="text-danger">
+                    {{prediction_text}}
+                  </h3>
+                </div>
+                </div>
+
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+      integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+      integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
